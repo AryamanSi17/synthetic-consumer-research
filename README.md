@@ -1,12 +1,17 @@
 # Synthetic Consumer Research: an Agent Skill for LLM Surveys with Semantic Similarity Rating (SSR)
 
-**Test a product idea on 100 simulated customers in a few minutes.** This is an [Agent Skill](https://docs.claude.com/en/docs/claude-code/skills) for Claude Code (also usable from any terminal) that runs a synthetic consumer survey. It gives LLM personas a product concept, collects their answers in their own words, and turns those answers into realistic 1 to 5 purchase intent ratings with **Semantic Similarity Rating (SSR)**.
+![Synthetic Consumer Research: survey AI customers before you build](assets/banner.svg)
+
+**Test a product idea on 100 simulated customers in a few minutes.** This is an open [Agent Skill](https://agentskills.io) (`SKILL.md`) that works in **Claude Code, Codex, Cursor, Google Antigravity, Gemini CLI** and any other agent that supports skills, and from a plain terminal too. It runs a synthetic consumer survey. It gives LLM personas a product concept, collects their answers in their own words, and turns those answers into realistic 1 to 5 purchase intent ratings with **Semantic Similarity Rating (SSR)**.
 
 SSR comes from the 2025 paper [*LLMs Reproduce Human Purchase Intent via Semantic Similarity Elicitation of Likert Ratings*](https://arxiv.org/abs/2510.08338) (Maier, Aslak, Fiaschi et al., PyMC Labs and Colgate-Palmolive). It was tested on 57 real product surveys with 9,300 people. SSR reached **90% of human test-retest reliability**: the consistency real people have when they answer the same survey twice. Its rating spread matched the real one with a **KS similarity of 0.88**.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)
-![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
+![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-d97757)
+![Codex](https://img.shields.io/badge/Codex-skill-black)
+![Cursor](https://img.shields.io/badge/Cursor-skill-blue)
+![Antigravity](https://img.shields.io/badge/Antigravity-skill-4285F4)
 [![arXiv 2510.08338](https://img.shields.io/badge/arXiv-2510.08338-b31b1b.svg)](https://arxiv.org/abs/2510.08338)
 
 ---
@@ -44,22 +49,40 @@ Use it for concept testing, price checks, landing page and ad copy, feature idea
 
 Ask an LLM "rate 1 to 5" and it plays it safe: nearly every answer is a 3 or a 4. The average can look fine, but the spread is unrealistic. In the paper, this direct method matched the real rating spread with a KS similarity of only **0.26**.
 
+![Asking an AI for a number versus Semantic Similarity Rating, results from the paper](assets/paper-results.svg)
+
 SSR lets the model answer like a person ("I like it, but $29 is a lot for me right now"). It then measures how close that sentence is in meaning to reference sentences for each rating. That keeps the uncertainty in the answer and gives realistic spreads (**0.88**).
 
 ## Install
 
-**As a Claude Code plugin:**
+**Any agent, one command** (uses the open [`skills`](https://skills.sh) installer, which detects Claude Code, Codex, Cursor, Antigravity, Gemini CLI and more):
+
+```bash
+npx skills add AryamanSi17/synthetic-consumer-research
+```
+
+**Or install by hand.** Copy the folder `skills/synthetic-consumer-research` into your agent's skills folder:
+
+| Agent | Personal (all projects) | One project only |
+|---|---|---|
+| Claude Code | `~/.claude/skills/` | `.claude/skills/` |
+| Codex | `~/.agents/skills/` (older versions: `~/.codex/skills/`) | `.agents/skills/` |
+| Cursor | `~/.cursor/skills/` | `.cursor/skills/` or `.agents/skills/` |
+| Google Antigravity | `~/.gemini/antigravity/skills/` | `.agents/skills/` |
+| Gemini CLI | `~/.gemini/skills/` | `.gemini/skills/` |
+
+```bash
+git clone https://github.com/AryamanSi17/synthetic-consumer-research
+cp -r synthetic-consumer-research/skills/synthetic-consumer-research ~/.claude/skills/   # change the path for your agent
+```
+
+`.agents/skills/` inside a project is the shared folder that Codex, Cursor and Antigravity all read, so one copy there covers all three.
+
+**Claude Code plugin:**
 
 ```
 /plugin marketplace add AryamanSi17/synthetic-consumer-research
 /plugin install synthetic-consumer-research@synthetic-consumer-research
-```
-
-**Or copy the skill folder:**
-
-```bash
-git clone https://github.com/AryamanSi17/synthetic-consumer-research
-cp -r synthetic-consumer-research/skills/synthetic-consumer-research ~/.claude/skills/
 ```
 
 **Embeddings.** Pick one:
@@ -67,15 +90,15 @@ cp -r synthetic-consumer-research/skills/synthetic-consumer-research ~/.claude/s
 - **OpenAI `text-embedding-3-small` (recommended, as in the paper):** set `OPENAI_API_KEY`. No extra package is needed.
 - **Free and local:** `pip install sentence-transformers`. It uses `all-MiniLM-L6-v2`.
 
-The scripts are plain Python with no other dependencies. Collecting answers uses the `claude` CLI by default, or any command line LLM tool via `--llm-cmd`.
+The scripts are plain Python with no other dependencies. To collect answers, `simulate.py` finds the agent command line tool on its own: `claude`, `codex` or `gemini`. Anywhere else, including inside Cursor or Antigravity, pass any tool that reads a prompt on stdin, for example `--llm-cmd 'llm -m gpt-4o'`.
 
 ## Quick start
 
-In Claude Code, just ask:
+In your agent (Claude Code, Codex, Cursor, Antigravity), just ask:
 
 > Test this product idea on 100 synthetic customers in the US: a $29 cold brew bottle that makes café-style cold brew overnight.
 
-Claude follows the skill: it writes the concept and personas, runs the survey, scores it and explains the results.
+The agent follows the skill: it writes the concept and personas, runs the survey, scores it and explains the results.
 
 Or run it yourself:
 
@@ -88,6 +111,8 @@ python3 scripts/ssr.py responses.jsonl --by age_band --out results
 Already have real survey results? Add `--human 12,30,80,150,90` (the counts for ratings 1 to 5) to measure how close the synthetic survey gets. This is the best way to check the setup before trusting it.
 
 ## Example output
+
+![Example run: mean purchase intent, rating spread and results by age](assets/example-result.svg)
 
 This is from the included [example](examples/): 8 personas with 2 answers each, scored with the free local model. See the full [report](examples/results/report.md).
 
@@ -111,6 +136,8 @@ The answers are often more useful than the score:
 This tiny run is only a demonstration. Use 100 or more personas for real decisions. The local model packs scores closer together than OpenAI embeddings do, so use OpenAI when it matters.
 
 ## How Semantic Similarity Rating works
+
+![How Semantic Similarity Rating works: persona, free-text answer, meaning match, rating probabilities](assets/how-it-works.svg)
 
 For each answer and each set of five reference sentences (one sentence per rating, 1 to 5):
 
@@ -160,8 +187,8 @@ The familiar 1 to 5 survey scale, from "definitely would not buy" to "definitely
 **What is Semantic Similarity Rating (SSR)?**
 A way to turn free-text answers into Likert ratings by comparing their meaning with reference sentences, using embeddings. It was introduced in arXiv:2510.08338.
 
-**Does it need Claude?**
-The skill is written for Claude Code, but the scripts work on their own. `simulate.py --llm-cmd` accepts any LLM command line tool, and `ssr.py` scores answers from any source.
+**Which agents does it work with?**
+Claude Code, Codex, Cursor, Google Antigravity, Gemini CLI and any other agent that reads `SKILL.md` skills. The scripts also run on their own: `simulate.py --llm-cmd` accepts any LLM command line tool, and `ssr.py` scores answers from any source.
 
 **How much does it cost?**
 One short LLM call per answer, plus embeddings that cost a fraction of a cent per 1,000 answers. The local embedding model is free.

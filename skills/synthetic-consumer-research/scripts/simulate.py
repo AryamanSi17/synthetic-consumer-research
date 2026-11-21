@@ -2,7 +2,8 @@
 """Ask an LLM to answer a survey question as each synthetic consumer, in free text.
 
 Every persona gets its own fresh LLM call, so answers don't influence each other.
-By default it uses the `claude` CLI (Claude Code), so no API key is needed.
+It uses whichever agent CLI is installed: claude (Claude Code), codex (Codex) or gemini (Gemini CLI).
+In Cursor, Antigravity or anywhere else, pass --llm-cmd with any command that reads a prompt on stdin.
 
 usage:
   simulate.py --concept concept.md --personas personas.jsonl [--question "..."]
@@ -13,7 +14,7 @@ personas.jsonl: one JSON object per line, e.g.
   {"id": "p01", "age": 34, "age_band": "25-34", "gender": "female", "income": "middle", "region": "Pune, India"}
 Every field except "id" is shown to the model as the consumer's profile.
 """
-import argparse, json, shlex, subprocess, sys
+import argparse, json, shlex, shutil, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
 
 SYSTEM = "Reply briefly to any questions posed to you."  # the paper's system prompt
@@ -34,6 +35,16 @@ Question: {question}
 {system} Answer in one to three sentences, in your own words. Do not give a number or a rating."""
 
 
+def default_cmd(model):
+    if shutil.which("claude"):
+        return ["claude", "-p"] + (["--model", model] if model else [])
+    if shutil.which("codex"):
+        return ["codex", "exec", "--skip-git-repo-check", "-"] + (["-m", model] if model else [])
+    if shutil.which("gemini"):
+        return ["gemini"] + (["-m", model] if model else [])
+    sys.exit("No agent CLI found (claude, codex or gemini). Pass --llm-cmd, e.g. --llm-cmd 'llm -m gpt-4o'")
+
+
 def ask(cmd, prompt):
     r = subprocess.run(cmd, input=prompt, capture_output=True, text=True, timeout=300)
     if r.returncode:
@@ -47,13 +58,13 @@ def main():
     ap.add_argument("--personas", required=True)
     ap.add_argument("--question", default="How likely are you to purchase the product?")
     ap.add_argument("--samples", type=int, default=2, help="answers per persona (the paper used 2)")
-    ap.add_argument("--model", default="sonnet", help="model for the claude CLI")
-    ap.add_argument("--llm-cmd", help="custom command instead of the claude CLI; prompt goes on stdin")
+    ap.add_argument("--model", help="model name passed to the detected CLI, e.g. sonnet or haiku for claude")
+    ap.add_argument("--llm-cmd", help="any command that reads the prompt on stdin, instead of the detected CLI")
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--out", default="responses.jsonl")
     a = ap.parse_args()
 
-    cmd = shlex.split(a.llm_cmd) if a.llm_cmd else ["claude", "-p", "--model", a.model]
+    cmd = shlex.split(a.llm_cmd) if a.llm_cmd else default_cmd(a.model)
     concept = open(a.concept).read().strip()
     personas = [json.loads(l) for l in open(a.personas) if l.strip()]
     jobs = []

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="1280" height="420" rx="24" fill="#0f1120"/>
+  <text x="48" y="58" fill="#d97757" font-size="15" font-weight="700" letter-spacing="2">EXAMPLE RUN · $29 COLD BREW BOTTLE · 8 PERSONAS × 2 ANSWERS</text>
+
+  <!-- headline numbers -->
+  <text x="48" y="132" fill="#ffffff" font-size="56" font-weight="800">3.33</text>
+  <text x="48" y="162" fill="#9a9ab8" font-size="17">mean purchase intent, out of 5</text>
+  <text x="48" y="238" fill="#ffffff" font-size="56" font-weight="800">49%</text>
+  <text x="48" y="268" fill="#9a9ab8" font-size="17">top-2-box (rated 4 or 5)</text>
+  <text x="48" y="340" fill="#e6e6f0" font-size="16" font-style="italic">“$29 for a bottle is a lot to spend on</text>
+  <text x="48" y="364" fill="#e6e6f0" font-size="16" font-style="italic">something I can already make for pennies.”</text>
+  <text x="48" y="390" fill="#9a9ab8" font-size="14">Retired, 67, fixed income</text>
+
+  <!-- distribution: max 26.2% -> 220px -->
+  <text x="420" y="104" fill="#e6e6f0" font-size="18" font-weight="700">Rating spread</text>
+  <g>
+    <rect x="420" y="276" width="56" height="85" rx="7" fill="#ef4444"/>
+    <rect x="492" y="182" width="56" height="179" rx="7" fill="#f97316"/>
+    <rect x="564" y="193" width="56" height="168" rx="7" fill="#eab308"/>
+    <rect x="636" y="173" width="56" height="188" rx="7" fill="#84cc16"/>
+    <rect x="708" y="141" width="56" height="220" rx="7" fill="#22c55e"/>
+  </g>
+  <g fill="#e6e6f0" font-size="15" text-anchor="middle" font-weight="600">
+    <text x="448" y="268">10%</text><text x="520" y="174">21%</text><text x="592" y="185">20%</text><text x="664" y="165">22%</text><text x="736" y="133">26%</text>
+  </g>
+  <g fill="#9a9ab8" font-size="15" text-anchor="middle">
+    <text x="448" y="386">1</text><text x="520" y="386">2</text><text x="592" y="386">3</text><text x="664" y="386">4</text><text x="736" y="386">5</text>
+  </g>
+
+  <!-- by age -->
+  <text x="840" y="104" fill="#e6e6f0" font-size="18" font-weight="700">Mean rating by age</text>
+  <g font-size="15" fill="#e6e6f0">
+    <text x="840" y="150">18–24</text><rect x="910" y="136" width="300" height="20" rx="6" fill="#ffffff" fill-opacity="0.07"/><rect x="910" y="136" width="191" height="20" rx="6" fill="#d97757"/><text x="1220" y="151">3.18</text>
+    <text x="840" y="200">25–34</text><rect x="910" y="186" width="300" height="20" rx="6" fill="#ffffff" fill-opacity="0.07"/><rect x="910" y="186" width="202" height="20" rx="6" fill="#d97757"/><text x="1220" y="201">3.37</text>
+    <text x="840" y="250">35–44</text><rect x="910" y="236" width="300" height="20" rx="6" fill="#ffffff" fill-opacity="0.07"/><rect x="910" y="236" width="212" height="20" rx="6" fill="#d97757"/><text x="1220" y="251">3.53</text>
+    <text x="840" y="300">45–54</text><rect x="910" y="286" width="300" height="20" rx="6" fill="#ffffff" fill-opacity="0.07"/><rect x="910" y="286" width="205" height="20" rx="6" fill="#d97757"/><text x="1220" y="301">3.42</text>
+    <text x="840" y="350">65+</text><rect x="910" y="336" width="300" height="20" rx="6" fill="#ffffff" fill-opacity="0.07"/><rect x="910" y="336" width="191" height="20" rx="6" fill="#d97757"/><text x="1220" y="351">3.19</text>
+  </g>
+  <text x="1240" y="404" fill="#6b6b88" font-size="12" text-anchor="end">Tiny demo run with the free local embedding model. Use 100+ personas for real decisions.</text>
+</svg>

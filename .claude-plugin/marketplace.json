@@ -1,6 +1,6 @@
 {
   "name": "synthetic-consumer-research",
-  "description": "Synthetic consumer research for Claude Code: LLM persona surveys scored with Semantic Similarity Rating (SSR).",
+  "description": "Synthetic consumer research for Claude Code, Codex, Cursor and Antigravity: LLM persona surveys scored with Semantic Similarity Rating (SSR).",
   "owner": {
     "name": "Aryaman Sinha",
     "url": "https://github.com/AryamanSi17"

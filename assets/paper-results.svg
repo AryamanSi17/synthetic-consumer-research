@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="440" viewBox="0 0 1280 440" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="1280" height="440" rx="24" fill="#0f1120"/>
+  <text x="640" y="54" fill="#ffffff" font-size="28" font-weight="800" text-anchor="middle">Asking for a number vs. Semantic Similarity Rating</text>
+  <text x="640" y="84" fill="#9a9ab8" font-size="16" text-anchor="middle">57 real product surveys, 9,300 people, GPT-4o (Maier et al. 2025)</text>
+
+  <!-- left panel: KS similarity -->
+  <text x="80" y="140" fill="#e6e6f0" font-size="19" font-weight="700">Matches the real spread of ratings</text>
+  <text x="80" y="164" fill="#9a9ab8" font-size="14">KS similarity, 1.0 = identical to real people</text>
+  <g font-size="16" fill="#e6e6f0">
+    <text x="80" y="214">Ask for a number</text>
+    <rect x="80" y="224" width="400" height="26" rx="8" fill="#ffffff" fill-opacity="0.07"/>
+    <rect x="80" y="224" width="104" height="26" rx="8" fill="#6b7280"/>
+    <text x="194" y="243" font-weight="700">0.26</text>
+
+    <text x="80" y="290">Words, then the AI picks a number</text>
+    <rect x="80" y="300" width="400" height="26" rx="8" fill="#ffffff" fill-opacity="0.07"/>
+    <rect x="80" y="300" width="288" height="26" rx="8" fill="#8b5cf6"/>
+    <text x="378" y="319" font-weight="700">0.72</text>
+
+    <text x="80" y="366" font-weight="700" fill="#ffffff">Words + SSR (this skill)</text>
+    <rect x="80" y="376" width="400" height="26" rx="8" fill="#ffffff" fill-opacity="0.07"/>
+    <rect x="80" y="376" width="352" height="26" rx="8" fill="#d97757"/>
+    <text x="442" y="395" font-weight="800" fill="#ffffff">0.88</text>
+  </g>
+
+  <!-- right panel: correlation attainment -->
+  <text x="720" y="140" fill="#e6e6f0" font-size="19" font-weight="700">Ranks products like real people do</text>
+  <text x="720" y="164" fill="#9a9ab8" font-size="14">Correlation attainment, share of the human test-retest ceiling</text>
+  <g font-size="16" fill="#e6e6f0">
+    <text x="720" y="214">Ask for a number</text>
+    <rect x="720" y="224" width="450" height="26" rx="8" fill="#ffffff" fill-opacity="0.07"/>
+    <rect x="720" y="224" width="320" height="26" rx="8" fill="#6b7280"/>
+    <text x="1050" y="243" font-weight="700">~80%</text>
+
+    <text x="720" y="290">Words, then the AI picks a number</text>
+    <rect x="720" y="300" width="450" height="26" rx="8" fill="#ffffff" fill-opacity="0.07"/>
+    <rect x="720" y="300" width="340" height="26" rx="8" fill="#8b5cf6"/>
+    <text x="1070" y="319" font-weight="700">85%</text>
+
+    <text x="720" y="366" font-weight="700" fill="#ffffff">Words + SSR (this skill)</text>
+    <rect x="720" y="376" width="450" height="26" rx="8" fill="#ffffff" fill-opacity="0.07"/>
+    <rect x="720" y="376" width="360" height="26" rx="8" fill="#d97757"/>
+    <text x="1090" y="395" font-weight="800" fill="#ffffff">~90%</text>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14112a"/><stop offset="1" stop-color="#0b0d18"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.82" cy="0.45" r="0.5">
+      <stop offset="0" stop-color="#d97757" stop-opacity="0.28"/><stop offset="1" stop-color="#d97757" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="400" rx="24" fill="url(#bg)"/>
+  <rect width="1280" height="400" rx="24" fill="url(#glow)"/>
+
+  <text x="64" y="92" fill="#d97757" font-size="16" font-weight="700" letter-spacing="2">AGENT SKILL · CLAUDE CODE · CODEX · CURSOR · ANTIGRAVITY</text>
+  <text x="64" y="160" fill="#ffffff" font-size="56" font-weight="800">Synthetic Consumer</text>
+  <text x="64" y="224" fill="#ffffff" font-size="56" font-weight="800">Research</text>
+  <text x="64" y="276" fill="#b8b8d0" font-size="24">Survey 100 AI customers before you build.</text>
+  <text x="64" y="310" fill="#b8b8d0" font-size="24">Realistic 1–5 ratings with Semantic Similarity Rating.</text>
+  <rect x="64" y="338" width="236" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
+  <text x="182" y="361" fill="#e6e6f0" font-size="16" text-anchor="middle">Based on arXiv 2510.08338</text>
+
+  <!-- personas -->
+  <g font-size="15" fill="#e6e6f0">
+    <rect x="720" y="70" width="190" height="56" rx="14" fill="#1f1b3a" stroke="#8b5cf6" stroke-opacity="0.6"/>
+    <circle cx="748" cy="98" r="14" fill="#8b5cf6"/><text x="772" y="94">Student, 23</text><text x="772" y="114" fill="#9a9ab8" font-size="13">tight budget</text>
+    <rect x="720" y="142" width="190" height="56" rx="14" fill="#1f1b3a" stroke="#d97757" stroke-opacity="0.6"/>
+    <circle cx="748" cy="170" r="14" fill="#d97757"/><text x="772" y="166">Director, 38</text><text x="772" y="186" fill="#9a9ab8" font-size="13">high income</text>
+    <rect x="720" y="214" width="190" height="56" rx="14" fill="#1f1b3a" stroke="#22c55e" stroke-opacity="0.6"/>
+    <circle cx="748" cy="242" r="14" fill="#22c55e"/><text x="772" y="238">Retired, 67</text><text x="772" y="258" fill="#9a9ab8" font-size="13">fixed income</text>
+    <rect x="720" y="286" width="190" height="56" rx="14" fill="#1f1b3a" stroke="#38bdf8" stroke-opacity="0.6"/>
+    <circle cx="748" cy="314" r="14" fill="#38bdf8"/><text x="772" y="310">Barista, 28</text><text x="772" y="330" fill="#9a9ab8" font-size="13">coffee lover</text>
+  </g>
+  <path d="M928 206 h52" stroke="#d97757" stroke-width="4" stroke-linecap="round"/>
+  <path d="M972 196 l12 10 l-12 10" fill="none" stroke="#d97757" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- rating distribution -->
+  <g>
+    <rect x="1000" y="70" width="216" height="272" rx="18" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.15"/>
+    <text x="1108" y="102" fill="#e6e6f0" font-size="15" text-anchor="middle" font-weight="600">Purchase intent</text>
+    <rect x="1024" y="262" width="28" height="30" rx="5" fill="#ef4444"/>
+    <rect x="1062" y="226" width="28" height="66" rx="5" fill="#f97316"/>
+    <rect x="1100" y="232" width="28" height="60" rx="5" fill="#eab308"/>
+    <rect x="1138" y="196" width="28" height="96" rx="5" fill="#84cc16"/>
+    <rect x="1176" y="160" width="28" height="132" rx="5" fill="#22c55e"/>
+    <g fill="#9a9ab8" font-size="14" text-anchor="middle">
+      <text x="1038" y="314">1</text><text x="1076" y="314">2</text><text x="1114" y="314">3</text><text x="1152" y="314">4</text><text x="1190" y="314">5</text>
+    </g>
+    <text x="1108" y="138" fill="#ffffff" font-size="26" font-weight="800" text-anchor="middle">3.6 / 5</text>
+  </g>
+</svg>

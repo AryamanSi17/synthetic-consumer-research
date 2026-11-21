@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="1280" height="520" rx="24" fill="#0f1120"/>
+  <text x="640" y="56" fill="#ffffff" font-size="28" font-weight="800" text-anchor="middle">How Semantic Similarity Rating works</text>
+  <text x="640" y="88" fill="#9a9ab8" font-size="17" text-anchor="middle">The AI answers in words. Embeddings turn the words into a probability for each rating.</text>
+
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#d97757"/></marker>
+  </defs>
+
+  <!-- step labels -->
+  <g font-size="15" font-weight="700" fill="#d97757" letter-spacing="1.5">
+    <text x="40" y="140">1 · PERSONA</text>
+    <text x="320" y="140">2 · ANSWER IN WORDS</text>
+    <text x="640" y="140">3 · MEANING MATCH</text>
+    <text x="1000" y="140">4 · RATING</text>
+  </g>
+
+  <!-- 1 persona -->
+  <rect x="40" y="160" width="240" height="300" rx="18" fill="#1a1830" stroke="#8b5cf6" stroke-opacity="0.5"/>
+  <circle cx="160" cy="222" r="38" fill="#8b5cf6"/>
+  <circle cx="160" cy="210" r="13" fill="#ffffff" fill-opacity="0.9"/>
+  <path d="M136 244 a24 18 0 0 1 48 0" fill="#ffffff" fill-opacity="0.9"/>
+  <g font-size="16" fill="#e6e6f0" text-anchor="middle">
+    <text x="160" y="292" font-weight="700" font-size="18">Student, 23</text>
+    <text x="160" y="320" fill="#9a9ab8">Austin, Texas</text>
+    <text x="160" y="346" fill="#9a9ab8">Tight budget</text>
+    <text x="160" y="372" fill="#9a9ab8">Iced coffee 4× a week</text>
+  </g>
+  <text x="160" y="430" fill="#b8b8d0" font-size="14" text-anchor="middle">sees the product concept</text>
+
+  <path d="M288 310 H312" stroke="#d97757" stroke-width="3" marker-end="url(#a)"/>
+
+  <!-- 2 answer -->
+  <rect x="320" y="160" width="290" height="300" rx="18" fill="#1a1830" stroke="#ffffff" stroke-opacity="0.15"/>
+  <path d="M350 200 h230 a14 14 0 0 1 14 14 v120 a14 14 0 0 1 -14 14 h-170 l-24 22 v-22 h-36 a14 14 0 0 1 -14 -14 v-120 a14 14 0 0 1 14 -14z" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.25"/>
+  <g font-size="17" fill="#ffffff">
+    <text x="356" y="238">“I like saving money on</text>
+    <text x="356" y="264">my daily iced coffee, but</text>
+    <text x="356" y="290">$29 is a lot for me right</text>
+    <text x="356" y="316">now as a student.”</text>
+  </g>
+  <text x="465" y="430" fill="#b8b8d0" font-size="14" text-anchor="middle">no number, just a sentence</text>
+
+  <path d="M618 310 H632" stroke="#d97757" stroke-width="3" marker-end="url(#a)"/>
+
+  <!-- 3 similarity -->
+  <rect x="640" y="160" width="330" height="300" rx="18" fill="#1a1830" stroke="#ffffff" stroke-opacity="0.15"/>
+  <g font-size="14" fill="#e6e6f0">
+    <text x="660" y="196">1  “I would definitely not buy this.”</text>
+    <rect x="660" y="204" width="290" height="8" rx="4" fill="#ffffff" fill-opacity="0.08"/><rect x="660" y="204" width="120" height="8" rx="4" fill="#ef4444"/>
+    <text x="660" y="246">2  “I probably wouldn't buy this.”</text>
+    <rect x="660" y="254" width="290" height="8" rx="4" fill="#ffffff" fill-opacity="0.08"/><rect x="660" y="254" width="230" height="8" rx="4" fill="#f97316"/>
+    <text x="660" y="296">3  “I'm not sure either way.”</text>
+    <rect x="660" y="304" width="290" height="8" rx="4" fill="#ffffff" fill-opacity="0.08"/><rect x="660" y="304" width="210" height="8" rx="4" fill="#eab308"/>
+    <text x="660" y="346">4  “I would probably buy this.”</text>
+    <rect x="660" y="354" width="290" height="8" rx="4" fill="#ffffff" fill-opacity="0.08"/><rect x="660" y="354" width="160" height="8" rx="4" fill="#84cc16"/>
+    <text x="660" y="396">5  “I would definitely buy this.”</text>
+    <rect x="660" y="404" width="290" height="8" rx="4" fill="#ffffff" fill-opacity="0.08"/><rect x="660" y="404" width="100" height="8" rx="4" fill="#22c55e"/>
+  </g>
+  <text x="805" y="444" fill="#b8b8d0" font-size="14" text-anchor="middle">closeness in meaning, averaged over 6 sets</text>
+
+  <path d="M978 310 H992" stroke="#d97757" stroke-width="3" marker-end="url(#a)"/>
+
+  <!-- 4 pmf -->
+  <rect x="1000" y="160" width="240" height="300" rx="18" fill="#1a1830" stroke="#d97757" stroke-opacity="0.5"/>
+  <g>
+    <rect x="1028" y="350" width="30" height="40" rx="5" fill="#ef4444"/>
+    <rect x="1068" y="250" width="30" height="140" rx="5" fill="#f97316"/>
+    <rect x="1108" y="270" width="30" height="120" rx="5" fill="#eab308"/>
+    <rect x="1148" y="310" width="30" height="80" rx="5" fill="#84cc16"/>
+    <rect x="1188" y="358" width="30" height="32" rx="5" fill="#22c55e"/>
+  </g>
+  <g fill="#9a9ab8" font-size="14" text-anchor="middle">
+    <text x="1043" y="412">1</text><text x="1083" y="412">2</text><text x="1123" y="412">3</text><text x="1163" y="412">4</text><text x="1203" y="412">5</text>
+  </g>
+  <g fill="#e6e6f0" font-size="13" text-anchor="middle">
+    <text x="1043" y="342">8%</text><text x="1083" y="242">34%</text><text x="1123" y="262">30%</text><text x="1163" y="302">20%</text><text x="1203" y="350">8%</text>
+  </g>
+  <text x="1120" y="200" fill="#ffffff" font-size="22" font-weight="800" text-anchor="middle">Leans “no”</text>
+  <text x="1120" y="444" fill="#b8b8d0" font-size="14" text-anchor="middle">a probability for every rating</text>
+  <text x="1240" y="508" fill="#6b6b88" font-size="12" text-anchor="end">Illustrative numbers</text>
+</svg>

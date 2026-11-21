@@ -40,8 +40,9 @@ Rules that matter, from the paper:
 python3 scripts/simulate.py --concept concept.md --personas personas.jsonl --samples 2 --out responses.jsonl
 ```
 
-- Each answer is a separate, fresh call through the `claude` CLI, so answers stay independent. Never write the answers yourself in this conversation, because they would all share one voice.
-- `--model` picks the Claude model. `--llm-cmd 'llm -m gpt-4o'` uses any other command line tool that reads a prompt on stdin.
+- Run it from this skill's folder, or give the full path to `scripts/`.
+- Each answer is a separate, fresh LLM call, so answers stay independent. Never write the answers yourself in this conversation, because they would all share one voice.
+- It finds the agent CLI on its own: `claude` (Claude Code), `codex` (Codex) or `gemini` (Gemini CLI). In Cursor, Antigravity or any other agent, pass a command that reads a prompt on stdin, for example `--llm-cmd 'llm -m gpt-4o'` or `--llm-cmd 'claude -p'`. `--model` passes a model name to the detected CLI.
 - Read 5 to 10 answers before scoring. If they sound alike or break character, fix the personas or the concept text and run again.
 
 ### 4. Score with SSR
