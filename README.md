@@ -92,7 +92,7 @@ cp -r synthetic-consumer-research/skills/synthetic-consumer-research ~/.claude/s
 **Embeddings.** Pick one:
 
 - **OpenAI `text-embedding-3-small` (recommended, as in the paper):** set `OPENAI_API_KEY`. No extra package is needed.
-- **Free and local:** `pip install sentence-transformers`. It uses `all-MiniLM-L6-v2`.
+- **Free and local:** `pip install sentence-transformers`. It uses `BAAI/bge-small-en-v1.5`.
 
 The scripts are plain Python with no other dependencies. To collect answers, `simulate.py` finds the agent command line tool on its own: `claude`, `codex` or `gemini`. Anywhere else, including inside Cursor or Antigravity, pass any tool that reads a prompt on stdin, for example `--llm-cmd 'llm -m gpt-4o'`.
 
@@ -118,7 +118,7 @@ Already have real survey results? Add `--human 12,30,80,150,90` (the counts for 
 
 ![Example run: mean purchase intent, rating spread and results by age](assets/example-result.svg)
 
-This is from the included [example](examples/): 8 personas with 2 answers each, scored with the free local model. See the full [report](examples/results/report.md).
+This is from the included [example](examples/): 8 personas with 2 answers each, scored with the earlier free default model, all-MiniLM-L6-v2. See the full [report](examples/results/report.md).
 
 ```
 Mean rating: 3.33 / 5
@@ -137,7 +137,7 @@ The answers are often more useful than the score:
 
 > "I buy cold brew most days and a bottle that makes it at home for much less is appealing. I'd want to hear from people who've used it, though." (35-44, high income)
 
-This tiny run is only a demonstration. Use 100 or more personas for real decisions. The local model packs scores closer together than OpenAI embeddings do, so use OpenAI when it matters.
+This tiny run is only a demonstration. Use 100 or more personas for real decisions. Free local models pack scores closer together than OpenAI embeddings do, so use OpenAI when it matters. In a quick test, bge-small-en-v1.5 (now the default) separated clear yes and no answers much better than all-MiniLM-L6-v2: 3.91 versus 2.03, compared with 3.37 versus 2.24.
 
 ## How Semantic Similarity Rating works
 

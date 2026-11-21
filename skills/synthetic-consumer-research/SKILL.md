@@ -51,7 +51,7 @@ python3 scripts/simulate.py --concept concept.md --personas personas.jsonl --sam
 python3 scripts/ssr.py responses.jsonl --anchors anchors/purchase_intent.json --by age_band --out results
 ```
 
-- **Embeddings:** if `OPENAI_API_KEY` is set, it uses OpenAI's `text-embedding-3-small`, as in the paper. Otherwise it uses the local model `all-MiniLM-L6-v2` (run `pip install sentence-transformers` first).
+- **Embeddings:** if `OPENAI_API_KEY` is set, it uses OpenAI's `text-embedding-3-small`, as in the paper. Otherwise it uses the local model `BAAI/bge-small-en-v1.5` (run `pip install sentence-transformers` first).
 - `--human 12,30,80,150,90` compares the result with a real survey's counts for ratings 1 to 5, and reports the KS similarity. Use it whenever the user has any real data, so you can check the setup before trusting it on new concepts.
 - `--temperature` defaults to 1, which is what the paper used. Values below 1 sharpen the distributions and values above 1 flatten them. Only tune it against real data.
 - `--selftest` checks the maths.

@@ -75,7 +75,7 @@ def embed_openai(texts, model="text-embedding-3-small"):
     return out
 
 
-def embed_local(texts, model="all-MiniLM-L6-v2"):
+def embed_local(texts, model="BAAI/bge-small-en-v1.5"):
     try:
         from sentence_transformers import SentenceTransformer
     except ImportError:
