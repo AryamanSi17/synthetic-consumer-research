@@ -95,7 +95,7 @@ cp -r synthetic-consumer-research/skills/synthetic-consumer-research ~/.claude/s
 **Embeddings.** Pick one:
 
 - **OpenAI `text-embedding-3-small` (recommended, as in the paper):** set `OPENAI_API_KEY`. No extra package is needed.
-- **Free and local:** `pip install sentence-transformers`. It uses `BAAI/bge-small-en-v1.5`.
+- **Free and local:** `pip install sentence-transformers`. It uses `BAAI/bge-small-en-v1.5`. Add `--first-sentence` when scoring with it: in a test on 300 answers about three gadgets, scoring whole answers rated firm "no" replies near the middle of the scale, and scoring the opening sentence fixed most of that.
 
 The scripts are plain Python with no other dependencies. To collect answers, `simulate.py` finds the agent command line tool on its own: `claude`, `codex` or `gemini`. Anywhere else, including inside Cursor or Antigravity, pass any tool that reads a prompt on stdin, for example `--llm-cmd 'llm -m gpt-4o'`.
 
@@ -112,7 +112,7 @@ Or run it yourself:
 ```bash
 cd skills/synthetic-consumer-research
 python3 scripts/simulate.py --concept ../../examples/concept.md --personas ../../examples/personas.jsonl --samples 2
-python3 scripts/ssr.py responses.jsonl --by age_band --out results
+python3 scripts/ssr.py responses.jsonl --by age_band --first-sentence --out results
 ```
 
 Already have real survey results? Add `--human 12,30,80,150,90` (the counts for ratings 1 to 5) to measure how close the synthetic survey gets. This is the best way to check the setup before trusting it.

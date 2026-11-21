@@ -53,6 +53,7 @@ python3 scripts/ssr.py responses.jsonl --anchors anchors/purchase_intent.json --
 
 - **Embeddings:** if `OPENAI_API_KEY` is set, it uses OpenAI's `text-embedding-3-small`, as in the paper. Otherwise it uses the local model `BAAI/bge-small-en-v1.5` (run `pip install sentence-transformers` first).
 - `--human 12,30,80,150,90` compares the result with a real survey's counts for ratings 1 to 5, and reports the KS similarity. Use it whenever the user has any real data, so you can check the setup before trusting it on new concepts.
+- **With the local model, add `--first-sentence`.** Personas state their intent in their first sentence. On long answers, the small local model gets pulled toward the middle of the scale by the details that follow, and firm "no" answers end up near 3. OpenAI embeddings handle whole answers better.
 - `--temperature` defaults to 1, which is what the paper used. Values below 1 sharpen the distributions and values above 1 flatten them. Only tune it against real data.
 - `--selftest` checks the maths.
 

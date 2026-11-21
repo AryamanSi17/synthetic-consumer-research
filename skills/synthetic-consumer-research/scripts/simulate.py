@@ -32,7 +32,7 @@ The product concept you are shown:
 
 Question: {question}
 
-{system} Answer in one to three sentences, in your own words. Do not give a number or a rating."""
+{system} Start with one short sentence that answers the question directly, then add one or two sentences on why. Use your own words. Do not give a number or a rating."""
 
 
 def default_cmd(model):

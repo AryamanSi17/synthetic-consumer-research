@@ -14,7 +14,7 @@ usage:
 Standard library only, except the embedder: OpenAI needs OPENAI_API_KEY (no package),
 local needs `pip install sentence-transformers`.
 """
-import argparse, json, math, os, sys, urllib.request
+import argparse, json, math, os, re, sys, urllib.request
 from collections import defaultdict
 
 
@@ -46,6 +46,12 @@ def response_pmf(vec, anchor_sets, eps=0.0, t=1.0):
     pmfs = [set_pmf([cosine(vec, a) for a in s], eps) for s in anchor_sets]
     avg = [sum(col) / len(pmfs) for col in zip(*pmfs)]
     return sharpen(avg, t)
+
+
+def first_sentence(text):
+    """The answer's opening sentence, where personas state their intent. Small local models get pulled
+    toward the middle of the scale by the details that follow (price, battery, features)."""
+    return re.split(r"(?<=[.!?])\s", text.strip(), maxsplit=1)[0]
 
 
 def mean_rating(p):
@@ -100,6 +106,8 @@ def main():
     ap.add_argument("--embedder", choices=["local", "openai"], default="openai" if os.environ.get("OPENAI_API_KEY") else "local")
     ap.add_argument("--temperature", type=float, default=1.0)
     ap.add_argument("--epsilon", type=float, default=0.0)
+    ap.add_argument("--first-sentence", action="store_true",
+                    help="score only each answer's first sentence (recommended with the local embedder)")
     ap.add_argument("--by", help="persona field to break results down by, e.g. age_band")
     ap.add_argument("--human", help="real survey counts for ratings 1..5, e.g. 12,30,80,150,90")
     ap.add_argument("--out", default="ssr-results")
@@ -117,7 +125,8 @@ def main():
         sys.exit("No responses found")
     embed = embed_openai if a.embedder == "openai" else embed_local
     flat = [s for st in anchors for s in st]
-    vecs = embed(flat + [r["response"] for r in rows])
+    pick = first_sentence if a.first_sentence else (lambda t: t)
+    vecs = embed(flat + [pick(r["response"]) for r in rows])
     k = len(anchors[0])
     sets = [vecs[i * k:(i + 1) * k] for i in range(len(anchors))]
     for r, v in zip(rows, vecs[len(flat):]):
@@ -163,6 +172,7 @@ def selftest():
     assert set_pmf([0.5] * 5) == [0.2] * 5
     assert ks_similarity([0.2] * 5, [0.2] * 5) == 1 and abs(ks_similarity([1, 0, 0, 0, 0], [0, 0, 0, 0, 1])) < 1e-9
     assert abs(set_pmf([0.1, 0.2, 0.3, 0.4, 0.5], eps=0.1)[0] - 0.1 / 1.1) < 1e-9
+    assert first_sentence("Very unlikely. $3,499 is a lot.") == "Very unlikely."
     print("selftest ok")
 
 
