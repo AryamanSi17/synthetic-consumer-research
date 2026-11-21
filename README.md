@@ -14,6 +14,8 @@ SSR comes from the 2025 paper [*LLMs Reproduce Human Purchase Intent via Semanti
 ![Antigravity](https://img.shields.io/badge/Antigravity-skill-4285F4)
 [![arXiv 2510.08338](https://img.shields.io/badge/arXiv-2510.08338-b31b1b.svg)](https://arxiv.org/abs/2510.08338)
 
+![Demo: an agent runs a synthetic customer survey on a $29 cold brew bottle and shows the purchase intent results](assets/demo.gif)
+
 ---
 
 ## Contents
