@@ -1,0 +1,9 @@
+{
+  "name": "synthetic-consumer-research",
+  "description": "Synthetic consumer surveys with LLM personas, scored with Semantic Similarity Rating (SSR, arXiv 2510.08338) for realistic purchase intent and Likert ratings.",
+  "version": "1.0.0",
+  "author": { "name": "Aryaman Sinha", "url": "https://github.com/AryamanSi17" },
+  "homepage": "https://github.com/AryamanSi17/synthetic-consumer-research",
+  "license": "MIT",
+  "keywords": ["synthetic consumers", "market research", "purchase intent", "likert", "semantic similarity rating", "survey simulation", "concept testing"]
+}

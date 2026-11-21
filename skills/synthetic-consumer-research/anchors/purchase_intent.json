@@ -1,0 +1,12 @@
+{
+  "question": "How likely are you to purchase the product?",
+  "note": "Six reference sets, one sentence per rating 1 to 5. Written for this skill following the rules in Maier et al. 2025, Appendix C.1: 1 = purchase unlikely, 3 = indifferent or unsure, 5 = intends to buy. The paper's own sentences are not published.",
+  "sets": [
+    ["I would definitely not buy this.", "I probably wouldn't buy this.", "I'm not sure whether I would buy this or not.", "I would probably buy this.", "I would definitely buy this."],
+    ["This is not for me, I won't be purchasing it.", "I doubt I would spend money on this.", "I could go either way on this.", "I'm fairly interested and might well buy it.", "I want this and I'm going to buy it."],
+    ["No chance I'd buy it.", "It's unlikely I'd buy it.", "Maybe, maybe not.", "It's likely I'd buy it.", "I'd buy it for sure."],
+    ["I have no interest in buying this product.", "I have little interest in buying this product.", "I feel neutral about buying this product.", "I have some real interest in buying this product.", "I am very keen to buy this product."],
+    ["I would never pay for something like this.", "I'd need a lot more convincing before buying.", "I'd consider it, but I'm undecided.", "I'd likely pick it up if I saw it.", "I'd buy it as soon as it's available."],
+    ["Not something I would purchase.", "Probably not something I would purchase.", "Hard to say if I would purchase it.", "Probably something I would purchase.", "Definitely something I would purchase."]
+  ]
+}

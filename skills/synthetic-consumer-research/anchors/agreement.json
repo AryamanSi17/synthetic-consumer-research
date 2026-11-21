@@ -1,0 +1,12 @@
+{
+  "question": "Any agree/disagree statement, e.g. 'This product is relevant to me.'",
+  "note": "Generic five-point agreement scale for questions other than purchase intent.",
+  "sets": [
+    ["I strongly disagree.", "I disagree.", "I neither agree nor disagree.", "I agree.", "I strongly agree."],
+    ["Not at all.", "Not really.", "Somewhat, I'm unsure.", "Mostly yes.", "Completely yes."],
+    ["That is definitely not true for me.", "That is mostly not true for me.", "That is partly true for me.", "That is mostly true for me.", "That is completely true for me."],
+    ["I disagree a lot.", "I kind of disagree.", "I don't know.", "I kind of agree.", "I agree a lot."],
+    ["Absolutely not.", "I don't think so.", "Neutral.", "I think so.", "Absolutely."],
+    ["This doesn't describe how I feel at all.", "This barely describes how I feel.", "This somewhat describes how I feel.", "This describes how I feel well.", "This describes exactly how I feel."]
+  ]
+}
