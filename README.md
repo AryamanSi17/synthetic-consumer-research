@@ -47,6 +47,8 @@ You describe a product. The skill then:
 
 Use it for concept testing, price checks, landing page and ad copy, feature ideas, or picking between two product versions before you spend money on a real survey.
 
+Also known as: **AI focus group**, **synthetic panel**, **silicon sampling**, **LLM survey simulation**, **AI customer personas**, **digital twin customers** and **synthetic respondents**.
+
 ## Why not just ask the AI for a rating?
 
 Ask an LLM "rate 1 to 5" and it plays it safe: nearly every answer is a 3 or a 4. The average can look fine, but the spread is unrealistic. In the paper, this direct method matched the real rating spread with a KS similarity of only **0.26**.

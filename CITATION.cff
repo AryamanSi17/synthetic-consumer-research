@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it and the paper it implements."
+title: "Synthetic Consumer Research: an Agent Skill for LLM surveys with Semantic Similarity Rating"
+authors:
+  - family-names: Sinha
+    given-names: Aryaman
+repository-code: "https://github.com/AryamanSi17/synthetic-consumer-research"
+license: MIT
+version: 1.0.0
+date-released: 2026-11-22
+keywords:
+  - synthetic consumers
+  - semantic similarity rating
+  - purchase intent
+  - Likert scale
+  - LLM survey simulation
+  - market research
+preferred-citation:
+  type: article
+  title: "LLMs Reproduce Human Purchase Intent via Semantic Similarity Elicitation of Likert Ratings"
+  authors:
+    - family-names: Maier
+      given-names: Benjamin F.
+    - family-names: Aslak
+      given-names: Ulf
+    - family-names: Fiaschi
+      given-names: Luca
+    - family-names: Rismal
+      given-names: Nina
+    - family-names: Fletcher
+      given-names: Kemble
+    - family-names: Luhmann
+      given-names: Christian C.
+    - family-names: Dow
+      given-names: Robbie
+    - family-names: Pappas
+      given-names: Kli
+    - family-names: Wiecki
+      given-names: Thomas V.
+  journal: "arXiv preprint arXiv:2510.08338"
+  year: 2025
+  url: "https://arxiv.org/abs/2510.08338"

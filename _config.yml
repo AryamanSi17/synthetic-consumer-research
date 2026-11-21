@@ -1,0 +1,13 @@
+title: Synthetic Consumer Research
+description: Survey AI customers before you build. An open Agent Skill for Claude Code, Codex, Cursor and Antigravity that scores purchase intent with Semantic Similarity Rating (SSR, arXiv 2510.08338).
+theme: jekyll-theme-cayman
+url: https://aryamansi17.github.io
+baseurl: /synthetic-consumer-research
+author: Aryaman Sinha
+image: /assets/social-preview.png
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+exclude:
+  - examples/results/scored.jsonl
+  - examples/responses.jsonl
