@@ -13,6 +13,7 @@ SSR comes from the 2025 paper [*LLMs Reproduce Human Purchase Intent via Semanti
 ![Cursor](https://img.shields.io/badge/Cursor-skill-blue)
 ![Antigravity](https://img.shields.io/badge/Antigravity-skill-4285F4)
 [![arXiv 2510.08338](https://img.shields.io/badge/arXiv-2510.08338-b31b1b.svg)](https://arxiv.org/abs/2510.08338)
+[![Try the demo on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Demo-Hugging%20Face-yellow)](https://huggingface.co/spaces/AryamanSi/semantic-similarity-rating-demo)
 
 ![Demo: an agent runs a synthetic customer survey on a $29 cold brew bottle and shows the purchase intent results](assets/demo.gif)
 
@@ -56,6 +57,8 @@ Ask an LLM "rate 1 to 5" and it plays it safe: nearly every answer is a 3 or a 4
 ![Asking an AI for a number versus Semantic Similarity Rating, results from the paper](assets/paper-results.svg)
 
 SSR lets the model answer like a person ("I like it, but $29 is a lot for me right now"). It then measures how close that sentence is in meaning to reference sentences for each rating. That keeps the uncertainty in the answer and gives realistic spreads (**0.88**).
+
+**Try it without installing:** the [free demo on Hugging Face](https://huggingface.co/spaces/AryamanSi/semantic-similarity-rating-demo) scores any customer answer you type.
 
 ## Install
 
