@@ -15,8 +15,6 @@ SSR comes from the 2025 paper [*LLMs Reproduce Human Purchase Intent via Semanti
 [![arXiv 2510.08338](https://img.shields.io/badge/arXiv-2510.08338-b31b1b.svg)](https://arxiv.org/abs/2510.08338)
 [![Try the demo on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Demo-Hugging%20Face-yellow)](https://huggingface.co/spaces/AryamanSi/semantic-similarity-rating-demo)
 
-<a href="https://www.producthunt.com/posts/synthetic-consumer-research?utm_source=badge-featured&utm_medium=badge&utm_source=badge-synthetic-consumer-research" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1325626&theme=light" alt="Synthetic Consumer Research on Product Hunt" width="250" height="54" /></a>
-
 ![Demo: an agent runs a synthetic customer survey on a $29 cold brew bottle and shows the purchase intent results](assets/demo.gif)
 
 ---
