@@ -13,11 +13,16 @@ SSR comes from the 2025 paper [*LLMs Reproduce Human Purchase Intent via Semanti
 ![Cursor](https://img.shields.io/badge/Cursor-skill-blue)
 ![Antigravity](https://img.shields.io/badge/Antigravity-skill-4285F4)
 [![arXiv 2510.08338](https://img.shields.io/badge/arXiv-2510.08338-b31b1b.svg)](https://arxiv.org/abs/2510.08338)
+[![Try it online](https://img.shields.io/badge/Try%20it-online-2ea44f)](https://synthetic.aryaman.club)
 [![Try the demo on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Demo-Hugging%20Face-yellow)](https://huggingface.co/spaces/AryamanSi/semantic-similarity-rating-demo)
 
 <a href="https://www.producthunt.com/posts/synthetic-consumer-research-2?utm_source=badge-featured&utm_medium=badge&utm_source=badge-synthetic-consumer-research" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1326467&theme=light" alt="Synthetic Consumer Research on Product Hunt" width="250" height="54" /></a>
 
 ![Demo: an agent runs a synthetic customer survey on a $29 cold brew bottle and shows the purchase intent results](assets/demo.gif)
+
+## Try it in your browser
+
+Don't want to install anything? The same method runs in your browser at [synthetic.aryaman.club](https://synthetic.aryaman.club). The free demo surveys 20 AI customers using your own Anthropic or OpenAI API key, and the key stays in your browser. For bigger surveys, the Studio plan is $20 a month: 30 surveys a month, up to 300 customers, A/B comparison of two versions, age and income splits, interview questions and CSV export.
 
 ---
 
