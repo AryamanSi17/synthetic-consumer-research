@@ -48,6 +48,8 @@ You describe a product. The skill then:
    - results by age or income group;
    - the most negative and most positive answers, which show what puts people off and what sells.
 
+Optional extras can also compare runs side by side, check whether polished wording changes the winner, and turn the strongest objections into questions for real customer interviews. See [Optional extras](#optional-extras).
+
 Use it for concept testing, price checks, landing page and ad copy, feature ideas, or picking between two product versions before you spend money on a real survey.
 
 Also known as: **AI focus group**, **synthetic panel**, **silicon sampling**, **LLM survey simulation**, **AI customer personas**, **digital twin customers** and **synthetic respondents**.
@@ -118,6 +120,26 @@ python3 scripts/ssr.py responses.jsonl --by age_band --first-sentence --out resu
 ```
 
 Already have real survey results? Add `--human 12,30,80,150,90` (the counts for ratings 1 to 5) to measure how close the synthetic survey gets. This is the best way to check the setup before trusting it.
+
+### Optional extras
+
+These run after the normal steps. They don't change anything above.
+
+**Check that the wording isn't doing the work.** Polished marketing copy can win a survey that a plain description would lose. Write each idea twice, once plain and once as marketing copy. Run both versions with the same personas, then compare the result folders, labelled `idea/version`:
+
+```bash
+python3 scripts/compare.py A/plain=results-a-plain A/copy=results-a-copy B/plain=results-b-plain B/copy=results-b-copy
+```
+
+It ranks the runs, says whether the lead is bigger than 0.2 (smaller gaps aren't reliable), shows how much the wording moves each idea's score, and warns if a different idea wins under different wording. To just compare concepts, use plain labels: `compare.py A=results-a B=results-b`.
+
+**Turn objections into interview questions.** The simulated answers are a first filter, so check the strongest objections with real people:
+
+```bash
+python3 scripts/interview.py results
+```
+
+It reads the most negative answers and writes open questions about past behaviour (never "would you buy?") to `results/interview-questions.md`. It uses the same agent tool as `simulate.py`.
 
 ## Example output
 

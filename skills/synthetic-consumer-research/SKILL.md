@@ -68,6 +68,14 @@ Give the user, in plain words:
 
 **Comparing concepts:** run steps 3 and 4 once per concept, with the **same personas and question**, then compare the means. SSR is best at ranking concepts against each other. Its absolute numbers are less reliable.
 
+### Optional extras (only when the user wants them)
+
+These run after step 4 and don't change the steps above.
+
+- **Side-by-side comparison:** `python3 scripts/compare.py A=results-a B=results-b` ranks scored runs and says whether the lead is bigger than 0.2.
+- **Wording check:** when comparing ideas, offer to write each one twice, as a plain description and as marketing copy, and run every version with the same personas. Then use `compare.py A/plain=... A/copy=... B/plain=... B/copy=...`. If it warns that the winner changes with the wording, tell the user plainly that the copy, not the idea, may be driving the score.
+- **Interview questions:** `python3 scripts/interview.py results` turns the most negative answers into open questions for real customer interviews, saved to `results/interview-questions.md`. Offer it at the end of a run, because checking the objections with real people is the next step.
+
 ## Always tell the user
 
 - These results are a fast, cheap first filter, not a replacement for real customers. They show direction and reasons, not exact numbers.
